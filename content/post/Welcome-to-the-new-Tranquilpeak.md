@@ -20,6 +20,7 @@ thumbnailImage: //d1u9biwaxjngwg.cloudfront.net/welcome-to-tranquilpeak/city-750
 thumbnailImagePosition: top
 title: Welcome to Tranquilpeak 0.4.4-BETA
 ---
+
 Tranquilpeak is a gorgeous responsive theme for Hugo blog framework. It has many features and integrated services to improve user experience.
 <!--more-->
 

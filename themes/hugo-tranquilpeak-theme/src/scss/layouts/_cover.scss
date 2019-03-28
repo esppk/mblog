@@ -4,7 +4,7 @@
     height:            100%;
     background-repeat: no-repeat;
     background-size:   cover;
-    top:               0;
+    top:               100;
     left:              0;
     // position the cover below the whole blog
     z-index:           map-get($z-indexes, l-cover);

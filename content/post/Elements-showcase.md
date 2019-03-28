@@ -7,7 +7,7 @@ tags:
 - html elements
 - markdown
 thumbnailImage: //d1u9biwaxjngwg.cloudfront.net/elements-showcase/vintage-140.jpg
-thumbnailImagePosition: left
+thumbnailImagePosition: top
 title: Elements showcase
 ---
 

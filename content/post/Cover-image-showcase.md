@@ -9,7 +9,7 @@ metaAlignment: center
 tags:
 - cover image
 thumbnailImage: //d1u9biwaxjngwg.cloudfront.net/cover-image-showcase/city-750.jpg
-thumbnailImagePosition: left
+thumbnailImagePosition: botttom
 title: Cover image showcase
 ---
 

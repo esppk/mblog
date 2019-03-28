@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on EmLog</title>
+    <title>Tags on Backyard of Creamy Whims</title>
     <link>/tags/</link>
-    <description>Recent content in Tags on EmLog</description>
+    <description>Recent content in Tags on Backyard of Creamy Whims</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 13 May 2015 00:00:00 +0000</lastBuildDate>
@@ -122,7 +122,7 @@
     <item>
       <title>Plot</title>
       <link>/tags/plot/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      <pubDate>Tue, 26 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/plot/</guid>
       <description></description>
@@ -131,7 +131,7 @@
     <item>
       <title>R Markdown</title>
       <link>/tags/r-markdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      <pubDate>Tue, 26 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/r-markdown/</guid>
       <description></description>
@@ -140,7 +140,7 @@
     <item>
       <title>Regression</title>
       <link>/tags/regression/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      <pubDate>Tue, 26 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/regression/</guid>
       <description></description>
@@ -188,6 +188,33 @@
       <pubDate>Mon, 23 Mar 2015 00:00:00 +0000</pubDate>
       
       <guid>/tags/test/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tidyquant</title>
+      <link>/tags/tidyquant/</link>
+      <pubDate>Thu, 28 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/tidyquant/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tidyverse</title>
+      <link>/tags/tidyverse/</link>
+      <pubDate>Thu, 28 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/tidyverse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tsibble</title>
+      <link>/tags/tsibble/</link>
+      <pubDate>Thu, 28 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/tsibble/</guid>
       <description></description>
     </item>
     
