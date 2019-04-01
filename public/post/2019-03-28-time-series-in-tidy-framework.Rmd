@@ -20,3 +20,63 @@ In this post, I would like to explore these 2 packages w.r.t their overlapped fu
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+## Compare Basic functionality
+
+### summsize over period
+
+
+```{r}
+library(tidyquant)
+library(tsibble)
+library(lubridate)
+```
+
+```{r}
+aapl_prices  <- tq_get("AAPL", get = "stock.prices", from = " 1990-01-01")
+aapl_prices
+```
+
+
+
+In `tidyquant`:
+```{r}
+aapl_prices %>% select(date, close) %>% 
+  tq_transmute(mutate_fun = to.period, 
+                             period = "months",
+                             col_rename = "mon_price") %>% 
+  mutate(date_ = yearmonth(date))
+```
+
+
+In `tsibble`:
+```{r}
+aapl_prices %>% select(date, close) %>% 
+  as_tsibble(index= date) %>% 
+  index_by(month = yearmonth(date)) %>% 
+  summarise(
+    temp_high = mean(close, na.rm = TRUE)
+  )
+```
+
+
+
+`tsibble` is little more verbose, but more explicit. 
+
+
+
+
+
+
+
+

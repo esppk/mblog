@@ -19,4 +19,129 @@ keywords:
 <h1>Overview</h1>
 <p>Tidyverse has been around for quite a while, however, it make one common date type unwieldy: matix. Unfortunately, matrix is what many popular times series functionalities packages based on, such as famous <code>xts</code> package. Most promising packages that handle time series in my eyes are <code>tsibble</code> and <code>tidyquant</code>. By no means, there is “use one or the other” relationship between these two packages. Base on the names alone, one can aware of that they have very different goals in minds. <code>tsibble</code> is aiming to come up with general purpose packages that can handle time series while <code>tidyquant</code> has more domain focus on finance, namely, portfolio management.</p>
 <p>In this post, I would like to explore these 2 packages w.r.t their overlapped functionalities in order to have a better idea which one would be a better choice for the job.</p>
+<div id="compare-basic-functionality" class="section level2">
+<h2>Compare Basic functionality</h2>
+<div id="summsize-over-period" class="section level3">
+<h3>summsize over period</h3>
+<pre class="r"><code>library(tidyquant)</code></pre>
+<pre><code>## Warning: package &#39;tidyquant&#39; was built under R version 3.5.3</code></pre>
+<pre><code>## Loading required package: lubridate</code></pre>
+<pre><code>## 
+## Attaching package: &#39;lubridate&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:base&#39;:
+## 
+##     date</code></pre>
+<pre><code>## Loading required package: PerformanceAnalytics</code></pre>
+<pre><code>## Warning: package &#39;PerformanceAnalytics&#39; was built under R version 3.5.3</code></pre>
+<pre><code>## Loading required package: xts</code></pre>
+<pre><code>## Warning: package &#39;xts&#39; was built under R version 3.5.3</code></pre>
+<pre><code>## Loading required package: zoo</code></pre>
+<pre><code>## Warning: package &#39;zoo&#39; was built under R version 3.5.3</code></pre>
+<pre><code>## 
+## Attaching package: &#39;zoo&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     as.Date, as.Date.numeric</code></pre>
+<pre><code>## 
+## Attaching package: &#39;PerformanceAnalytics&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:graphics&#39;:
+## 
+##     legend</code></pre>
+<pre><code>## Loading required package: quantmod</code></pre>
+<pre><code>## Loading required package: TTR</code></pre>
+<pre><code>## Warning: package &#39;TTR&#39; was built under R version 3.5.3</code></pre>
+<pre><code>## Version 0.4-0 included new data defaults. See ?getSymbols.</code></pre>
+<pre><code>## Loading required package: tidyverse</code></pre>
+<pre><code>## -- Attaching packages -------------</code></pre>
+<pre><code>## √ ggplot2 3.1.0       √ purrr   0.3.0  
+## √ tibble  2.0.1       √ dplyr   0.8.0.1
+## √ tidyr   0.8.2       √ stringr 1.4.0  
+## √ readr   1.3.1       √ forcats 0.4.0</code></pre>
+<pre><code>## -- Conflicts ----------------------
+## x lubridate::as.difftime() masks base::as.difftime()
+## x lubridate::date()        masks base::date()
+## x dplyr::filter()          masks stats::filter()
+## x dplyr::first()           masks xts::first()
+## x lubridate::intersect()   masks base::intersect()
+## x dplyr::lag()             masks stats::lag()
+## x dplyr::last()            masks xts::last()
+## x lubridate::setdiff()     masks base::setdiff()
+## x lubridate::union()       masks base::union()</code></pre>
+<pre class="r"><code>library(tsibble)</code></pre>
+<pre><code>## Warning: package &#39;tsibble&#39; was built under R version 3.5.3</code></pre>
+<pre><code>## 
+## Attaching package: &#39;tsibble&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     id</code></pre>
+<pre><code>## The following object is masked from &#39;package:zoo&#39;:
+## 
+##     index</code></pre>
+<pre><code>## The following objects are masked from &#39;package:lubridate&#39;:
+## 
+##     interval, new_interval</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     filter</code></pre>
+<pre class="r"><code>library(lubridate)</code></pre>
+<pre class="r"><code>aapl_prices  &lt;- tq_get(&quot;AAPL&quot;, get = &quot;stock.prices&quot;, from = &quot; 1990-01-01&quot;)
+aapl_prices</code></pre>
+<pre><code>## # A tibble: 7,368 x 7
+##    date        open  high   low close   volume adjusted
+##    &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+##  1 1990-01-02  1.26  1.34  1.25  1.33 45799600    0.122
+##  2 1990-01-03  1.36  1.36  1.34  1.34 51998800    0.123
+##  3 1990-01-04  1.37  1.38  1.33  1.34 55378400    0.123
+##  4 1990-01-05  1.35  1.37  1.32  1.35 30828000    0.124
+##  5 1990-01-08  1.34  1.36  1.32  1.36 25393200    0.124
+##  6 1990-01-09  1.36  1.36  1.32  1.34 21534800    0.123
+##  7 1990-01-10  1.34  1.34  1.28  1.29 49929600    0.118
+##  8 1990-01-11  1.29  1.29  1.23  1.23 52763200    0.113
+##  9 1990-01-12  1.22  1.24  1.21  1.23 42974400    0.113
+## 10 1990-01-15  1.23  1.28  1.22  1.22 40434800    0.112
+## # ... with 7,358 more rows</code></pre>
+<p>In <code>tidyquant</code>:</p>
+<pre class="r"><code>aapl_prices %&gt;% select(date, close) %&gt;% 
+  tq_transmute(mutate_fun = to.period, 
+                             period = &quot;months&quot;,
+                             col_rename = &quot;mon_price&quot;) %&gt;% 
+  mutate(date_ = yearmonth(date))</code></pre>
+<pre><code>## # A tibble: 351 x 3
+##    date       mon_price     date_
+##    &lt;date&gt;         &lt;dbl&gt;     &lt;mth&gt;
+##  1 1990-01-31      1.21  1990 1月
+##  2 1990-02-28      1.21  1990 2月
+##  3 1990-03-30      1.44  1990 3月
+##  4 1990-04-30      1.41  1990 4月
+##  5 1990-05-31      1.47  1990 5月
+##  6 1990-06-29      1.60  1990 6月
+##  7 1990-07-31      1.5   1990 7月
+##  8 1990-08-31      1.32  1990 8月
+##  9 1990-09-28      1.04  1990 9月
+## 10 1990-10-31      1.10 1990 10月
+## # ... with 341 more rows</code></pre>
+<p>In <code>tsibble</code>:</p>
+<pre class="r"><code>aapl_prices %&gt;% select(date, close) %&gt;% 
+  as_tsibble(index= date) %&gt;% 
+  index_by(month = yearmonth(date)) %&gt;% 
+  summarise(
+    temp_high = mean(close, na.rm = TRUE)
+  )</code></pre>
+<pre><code>## # A tsibble: 351 x 2 [1M]
+##        month temp_high
+##        &lt;mth&gt;     &lt;dbl&gt;
+##  1  1990 1月      1.25
+##  2  1990 2月      1.21
+##  3  1990 3月      1.38
+##  4  1990 4月      1.46
+##  5  1990 5月      1.47
+##  6  1990 6月      1.44
+##  7  1990 7月      1.57
+##  8  1990 8月      1.37
+##  9  1990 9月      1.18
+## 10 1990 10月      1.03
+## # ... with 341 more rows</code></pre>
+<p><code>tsibble</code> is little more verbose, but more explicit.</p>
+</div>
+</div>
 </div>
